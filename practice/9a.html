@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9a practice
+  </title>
+</head>
+<body>
+
+  <button>9a</button>
+
+  <button class="js-button">9b</button>
+
+  <button onclick="
+    document.querySelector('.js-move')
+      .innerHTML = 'You chose = heads';
+  ">heads</button>
+
+  <button onclick="
+    document.querySelector('.js-move')
+      .innerHTML = 'You chose = tails';
+  ">tails</button>
+
+  <p class="js-move"></p>
+
+  <input placeholder="Name" class="js-name-input" onkeydown="
+    handleCostKeydown(event);
+  ">
+  
+  <button onclick="
+    updateInput();
+  ">Submit</button>
+
+  <p class="js-input-text"></p>
+
+
+  <script>
+    function handleCostKeydown(event) {
+      if (event.key === 'Enter') {
+        updateInput();
+      }
+    };
+
+    function updateInput() {
+      let inputElement = document.querySelector('.js-name-input');
+      document.querySelector('.js-input-text')
+        .innerHTML = `Your name is: ${inputElement.value}`  
+    };
+    
+    console.log(document.querySelector('button'));
+    document.querySelector('.js-button').innerHTML = '9b done!';
+  </script>
+</body>
+</html>

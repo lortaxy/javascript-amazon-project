@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9h Practice</title>
+</head>
+<body>
+  <input placeholder="Type something" onkeyup="textUpdateLive();" class="js-text-box">
+  <p class="js-text-update"></p>
+  <script>
+    function textUpdateLive() {
+      let inputElement = document.querySelector('.js-text-box');
+      document.querySelector('.js-text-update').innerHTML = inputElement.value;
+    }
+    
+  </script>
+</body>
+</html>

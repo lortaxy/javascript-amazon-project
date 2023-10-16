@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App</title>
+</head>
+<body>
+  <button class="js-button">Start</button>
+
+  <button class="add-to-cart-btn">Add to cart</button>
+  <p class="text"></p>
+
+  <button class="add-js">Add</button>
+
+  <button class="remove-js">Remove</button>
+
+  <script>
+    const add = () => {
+      console.log(2 + 3);
+    }
+    add();
+    add();
+
+    function runTwice(fun) {
+      fun();
+      fun();
+    }
+
+    runTwice(() => {
+      console.log('12b');
+    });
+
+    runTwice(add);
+
+    function lol () {
+      console.log(25 + 50);
+    }
+
+    runTwice(lol);
+
+    function toggled() {
+      const buttonElement = document.querySelector('.js-button');
+      buttonElement.innerHTML = 'Loading...';
+
+      setTimeout(() => {
+        buttonElement.innerHTML = 'Finished';
+      }, 1000);
+    }
+
+    let timeoutId;
+
+    function update() {
+      const textElement = document.querySelector('.text');
+      textElement.innerHTML = 'Added';
+      
+      clearTimeout(timeoutId);
+
+      timeoutId = setTimeout(() => {
+        textElement.innerHTML = '';
+      }, 2000);
+    }
+
+    let messages = 2;
+
+    let intervalId;
+
+    let isDisplayingNotification;
+
+    displayNotification();
+
+    function displayNotification() {
+      if (isDisplayingNotification) {
+        return;
+      }
+    
+
+    isDisplayingNotification = true;
+
+    intervalId = setInterval(() => {
+      if (document.title === 'App') {
+        document.title = `(${(messages)}) New messages`;
+      } else {
+        document.title = 'App';
+      }
+    }, 1000);
+  }
+
+    function stopNotification() {
+      isDisplayingNotification = false;
+
+      clearInterval(intervalId);
+      document.title = 'App';
+    }
+
+    document.querySelector('.js-button')
+      .addEventListener('click', () => {
+        toggled();
+});
+
+    document.querySelector('.add-to-cart-btn')
+      .addEventListener('click', () => {
+        update(); clearTimeout();
+      });
+
+    document.querySelector('.add-js')
+      .addEventListener('click', () => {
+        messages++; displayNotification();
+      });
+
+    document.querySelector('.remove-js') 
+      .addEventListener('click', () => {
+      if (messages > 0) {
+        messages--; 
+        
+      if (messages === 0) {
+        stopNotification();
+      }
+    }
+      });
+
+  </script>
+</body>
+</html>

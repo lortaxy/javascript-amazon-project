@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stopwatch</title>
+</head>
+<body>
+
+  <p><span class="seconds">00</span>:<span class="tens">00</span></p>
+  <button class="start-button">Start</button>
+  <button class="stop-button">Stop</button>
+  <button class="reset-button">Reset</button>
+
+  <script>
+    let seconds = '00';
+    let tens = '00';
+    let interval = '';
+
+    const tenshh = document.querySelector('.tens');
+    const secondshh = document.querySelector('.seconds');
+    
+    document.querySelector('.start-button').addEventListener('click', () => {
+      clearInterval(interval);
+      interval = setInterval(startTimer, 10);
+    });
+
+    document.querySelector('.stop-button').addEventListener('click', () => {
+      clearInterval(interval);
+    });
+
+
+    document.querySelector('.reset-button').addEventListener('click', () => {
+      clearInterval(interval);
+      tens = '00';
+      seconds = '00';
+      tenshh.innerHTML = tens;
+      secondshh.innerHTML = seconds;
+    });
+
+    function startTimer () {
+    tens++; 
+    
+    if(tens <= 9){
+      tenshh.innerHTML = "0" + tens;
+    }
+    
+    if (tens > 9){
+      tenshh.innerHTML = tens;
+      
+    } 
+    
+    if (tens > 99) {
+      console.log("seconds");
+      seconds++;
+      secondshh.innerHTML = "0" + seconds;
+      tens = 0;
+      tenshh.innerHTML = "0" + 0;
+    }
+    
+    if (seconds > 9){
+      secondshh.innerHTML = seconds;
+    }
+  
+  }
+  
+
+  </script>
+</body>
+</html>

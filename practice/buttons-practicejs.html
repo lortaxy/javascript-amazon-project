@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .red-button {
+      padding: 10px 15px;
+      background-color: red;
+      color: white;
+      border: none;
+    }
+    .blue-button {
+      padding: 10px 15px;
+      background-color: blue;
+      color: white;
+      border: none;
+    }
+    .green-button {
+      padding: 10px 15px;
+      background-color: green;
+      color: white;
+      border: none;
+    }
+
+    .gray-button {
+      background-color: gray;
+    }
+  </style>
+</head>
+<body>
+  <button class="buttonjs red-button" onclick="toggleButton('.buttonjs');">Red</button>
+  <button class="buttonjs2 blue-button" onclick="toggleButton('.buttonjs2');">Blue</button>
+  <button class="buttonjs3 green-button" onclick="toggleButton('.buttonjs3');">Green</button>
+  
+  <script>
+    
+    function toggleButton(selector) {
+      const buttonElement = document.querySelector(selector)
+      if (!buttonElement.classList.contains('gray-button')) {
+        removePrevious();
+        buttonElement.classList.add('gray-button');
+      } else {
+        buttonElement.classList.remove('gray-button');
+      }
+    }
+
+    function removePrevious() {
+      const buttonSecond = document.querySelector('.gray-button');
+      if (buttonSecond) {
+        buttonSecond.classList.remove('gray-button');
+      }
+    }
+  </script>
+</body>
+</html>
